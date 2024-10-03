@@ -16,6 +16,6 @@ App.use(express.static("Src/Views"));
 App.use("/api/", FileRouter);
 
 App.listen("3500", () => {
-  console.log("server is running on port num 3500");
+  console.log("server is running on port server http://localhost:3500/api/");
   connect();
 });
