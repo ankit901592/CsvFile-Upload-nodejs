@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV Upload UI</title>
+    <link rel="stylesheet" href="/Styles/fileupload.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Upload CSV Files</h1>
+      <!-- Form element for file upload with action and method -->
+      <form class="upload-section" action="/api/fileUpload" method="POST" enctype="multipart/form-data">
+        <label for="csv-upload"  class="upload-btn">Upload CSV</label>
+        <input
+          type="file"
+          id="csv-upload"
+          name="fileUrl"
+          accept=".csv"
+          style="display: none"
+        />
+        <button  class="view-btn" type="submit">Click here to Upload</button>
+      </form>
+    </div>
+
+      <div class="file-list">
+        <h2>Uploaded Files</h2>
+        <ul>
+          <% if (list && list.length > 0) { %> <% list.forEach(file => { %>
+          <li class="file-item">
+            <span class="file-name"><%= file.filename %></span>
+            <span class="file-name"><%= file.createdAt %></span>
+            <!-- view/:id -->
+            <a href="/api/view/<%= file.filename %>" class="view-btn">View</a>
+            <a href="/api/delete/<%= file.filename %>" class="delete-btn">Delete</a>
+          </li>
+          <% }) %> <% } else { %>
+          <div class="alert alert-warning" role="alert">
+No file Selected
+          </div>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
