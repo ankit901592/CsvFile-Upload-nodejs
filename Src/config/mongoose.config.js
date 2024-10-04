@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-const Port = "mongodb://localhost:27017/FileUpload";
 const connect = async () => {
-  await mongoose.connect(Port);
+  await mongoose.connect(process.env.MONGO_URI);
   console.log("mongo is connected");
 };
 

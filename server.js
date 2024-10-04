@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config();
 import express from "express";
 import connect from "./Src/config/mongoose.config.js";
 import path from "path";
