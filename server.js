@@ -15,9 +15,9 @@ App.set("view engine", "ejs");
 App.set("views", "./Src/Views");
 
 App.use(express.static("Src/Views"));
-App.use("/api/", FileRouter);
+App.use("/", FileRouter);
 
 App.listen("3500", () => {
-  console.log("server is running on port server http://localhost:3500/api/");
+  console.log("server is running on port server http://localhost:3500");
   connect();
 });

@@ -14,7 +14,7 @@ export class fileUploadController {
       }
       const file = req.file.filename; // Retrieve the uploaded file's filename
       await this.repository.uploadFile(file); // Call the repository method to upload the file
-      return res.redirect('http://localhost:3500/api/'); // Redirect after successful upload
+      return res.redirect('http://localhost:3500'); // Redirect after successful upload
       // res.status(200).send(`File uploaded successfully: ${req.file.filename}`);
     } catch (err) {
       console.log(err); // Log any errors that occur during the upload process
@@ -42,7 +42,7 @@ export class fileUploadController {
       const isDeleted = await this.repository.deleteFile(id); // Call the repository method to delete the file
       if (isDeleted) {
         // If deletion is successful, redirect to the API page
-        return res.redirect('http://localhost:3500/api/');
+        return res.redirect('http://localhost:3500');
       } else {
         return res.status(404).send("Something went wrong"); // Send an error response if deletion fails
       }
